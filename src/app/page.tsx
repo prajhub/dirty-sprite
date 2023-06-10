@@ -1,9 +1,15 @@
-import Image from 'next/image'
+import Hero from "@/components/Hero";
+import Toppicks from "@/components/Toppicks";
+
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-     <div>hi</div>
-    </main>
+   <>
+   
+    <section>
+      <Hero/>
+      <Toppicks/>
+    </section>
+   </>
   )
 }
