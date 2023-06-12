@@ -1,19 +1,22 @@
-import getTopPicks from "@/lib/getTopPicks"
 import Image from "next/image"
 import Link from "next/link"
+import getTopJewel from "@/lib/getTopJewel"
+import {IoIosArrowForward} from 'react-icons/io'
 
-export default async function Toppicks() {
+export default async function JeweleryCat() {
 
-    const topPicksData: Promise < AllProducts[] > = getTopPicks()
-
-    const picks = await topPicksData
-
+    const topJewlery: Promise<AllProducts[]> = getTopJewel()
+    const picks = await topJewlery
 
 
-    return (
+    return  (
         <div className="bg-white">
             <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-10 lg:max-w-7xl lg:px-8">
-                <h2 className="text-2xl font-bold tracking-tight text-gray-900">This week's top picks</h2>
+                <h2 className="text-2xl font-bold tracking-wide text-gray-900 ">Jewelery</h2>
+                <div className="flex gap-1 items-center ml-1 ">
+                <span className="text-sm text-gray-600 hover:cursor-pointer hover:text-[#6237A0]">View all</span>
+                    <IoIosArrowForward/>
+                </div>
                 <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-8">
                     {
                     picks.map((pick) => (

@@ -1,4 +1,4 @@
-type TopPicks = {
+type AllProducts = {
     "id": number,
     "title": string,
     "price": number,
