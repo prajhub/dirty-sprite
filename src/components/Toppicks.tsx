@@ -1,6 +1,7 @@
 import getTopPicks from "@/lib/getTopPicks"
 import Image from "next/image"
 import Link from "next/link"
+import ProductImage from "./ProductImage"
 
 export default async function Toppicks() {
 
@@ -9,54 +10,44 @@ export default async function Toppicks() {
     const picks = await topPicksData
 
 
-
     return (
-        <div className="bg-white">
-            <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-10 lg:max-w-7xl lg:px-8">
-                <h2 className="text-2xl font-bold tracking-tight text-gray-900">This week's top picks</h2>
-                <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-8">
-                    {
-                    picks.map((pick) => (
-                        <div 
-                         key={
-                                pick.id
-                            }
-                            className="group relative border-b ">
-                            <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
-                                <Image src={
-                                        pick.image
-                                    }
-                                    width={200}
-                                    height={200}
-                                    alt={
-                                        pick.title
-                                    }
-                                    className="h-full w-full object-cover object-center lg:h-full lg:w-full"/>
-                            </div>
-                            <div className="mt-4 flex justify-between">
-                                <div>
-                                    <h3 className="text-sm text-gray-700">
-                                        <Link href={
-                                            `/product/${pick.id}`
-                                        }>
-                                            <span aria-hidden="true" className="relative tracking-wide  font-semibold"> {
-                                            pick.title
-                                        } </span></Link>
-                                    </h3>
-                                    {/* <p className="mt-1 text-sm text-gray-500">
-                                        {
-                                        product.color
-                                    }</p> */}
-                                </div>
-                                <p className="text-sm font-medium text-gray-900">
-                                   ${
-                                    pick.price
-                                }</p>
-                            </div>
-                        </div>
-                    ))
-                } </div>
+        <section className="flex flex-col mx-auto max-w-7xl">
+
+            <div className=" my-4">
+
+                <span className="font-semibold text-lg">Top picks this week</span>
             </div>
-        </div>
+            <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+                {
+                picks.map((pick) => (
+                    <Link href={
+                            `/product/${
+                                pick.id
+                            }`
+                        }
+                        className="h-96 flex flex-col p-5 rounded border group hover:scale-105 transition-transform ease-out duration-200">
+                        <div className="relative max-h-72 flex-1">
+                            <ProductImage product={pick}
+                                fill/>
+                        </div>
+
+                        <div className="font-semibold flex items-center justify-between mt-4 mb-1">
+                            <p className="w-44 truncate">
+                                {
+                                pick.title
+                            }</p>
+                            <p className="text-gray-600">${
+                                pick.price
+                            }</p>
+                        </div>
+
+                        <p className="italic text-xs w-64 line-clamp-2 text-gray-600">
+                            {
+                            pick.description
+                        } </p>
+                    </Link>
+                ))
+            } </div>
+        </section>
     )
 }
