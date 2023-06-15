@@ -1,4 +1,5 @@
 "use client"
+import Image from "next/image"
 import Link from "next/link"
 
 export default function Navbar() {
@@ -7,7 +8,7 @@ export default function Navbar() {
       <nav className="container mx-auto flex items-center justify-between p-4">
         <Link href='/'>
         <div className="flex items-center">
-          <img src="logo.png" alt="Logo" className="w-8 h-8 mr-2" />
+          <Image src="logo.png" alt="Logo" className="w-8 h-8 mr-2" />
           <span className="text-lg text-white font-semibold">Dirtysprite</span>
         </div>
         </Link>
