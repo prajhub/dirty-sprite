@@ -19,7 +19,7 @@ export default async function JeweleryCat() {
         <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
             {
             picks.map((pick) => (
-                <Link href={
+                <Link key={pick.id} href={
                         `/product/${
                             pick.id
                         }`
