@@ -51,8 +51,7 @@ export default function Hero() {
             quick, and leave
           </h2>
           <p className="text-base text-gray-700 md:text-lg">
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-            accusantium doloremque rem aperiam, eaque ipsa quae.
+            At DirtySprite there is no time wasted. Do it fast and be on your way.
           </p>
         </div>
         <div>
