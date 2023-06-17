@@ -41,10 +41,10 @@ export default function Navbar() {
       <span className="text-sm text-gray-900 hover:text-gray-600 hover:cursor-pointer hover:underline">Jewelery</span>
       </Link>
       <Link href='/menwear'>
-      <span className="text-sm text-gray-900 hover:text-gray-600 hover:cursor-pointer hover:underline">Men's wear</span>
+      <span className="text-sm text-gray-900 hover:text-gray-600 hover:cursor-pointer hover:underline">Men&apos;s wear</span>
       </Link>
       <Link href='/womenwear'>
-      <span className="text-sm text-gray-900 hover:text-gray-600 hover:cursor-pointer hover:underline">Women's wear</span>
+      <span className="text-sm text-gray-900 hover:text-gray-600 hover:cursor-pointer hover:underline">Women&apos;s wear</span>
       </Link>
       
     </div>
