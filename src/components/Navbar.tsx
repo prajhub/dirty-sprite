@@ -1,6 +1,12 @@
 "use client"
-import Image from "next/image"
+
 import Link from "next/link"
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card"
+
 import { Inter } from 'next/font/google'
  
 const inter = Inter({ subsets: ['latin'] })
@@ -18,13 +24,39 @@ export default function Navbar() {
         </Link>
         <ul className="flex items-center space-x-4">
           <li>
-            <a href="#contact" className="text-gray-300 hover:text-white">Home</a>
+            <Link href="#contact" className="text-gray-300 hover:text-white">Home</Link>
           </li>
           <li>
-            <a href="#products" className="text-gray-300 hover:text-white">Products</a>
-          </li>
+          <HoverCard>
+  <HoverCardTrigger className="text-gray-300 hover:text-white hover:cursor-pointer">Products</HoverCardTrigger>
+  <HoverCardContent>
+   <div>
+    <h3 className="text-md font-semibold">All products</h3>
+
+    <div className="flex mt-1 flex-col gap-1 group">
+      <Link href='/electronics'>
+      <span className="text-sm text-gray-900 hover:text-gray-600 hover:cursor-pointer hover:underline">Electronics</span>
+      </Link>
+      <Link href='/jewelery'>
+      <span className="text-sm text-gray-900 hover:text-gray-600 hover:cursor-pointer hover:underline">Jewelery</span>
+      </Link>
+      <Link href='/menwear'>
+      <span className="text-sm text-gray-900 hover:text-gray-600 hover:cursor-pointer hover:underline">Men's wear</span>
+      </Link>
+      <Link href='/womenwear'>
+      <span className="text-sm text-gray-900 hover:text-gray-600 hover:cursor-pointer hover:underline">Women's wear</span>
+      </Link>
+      
+    </div>
+   </div>
+  </HoverCardContent>
+</HoverCard>
+
+</li>
+
+
           <li>
-            <a href="#products" className="text-gray-300 hover:text-white">Contact</a>
+            <Link href="#products" className="text-gray-300 hover:text-white">Contact</Link>
           </li>
         </ul>
       </nav>
